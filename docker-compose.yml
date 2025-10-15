@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  readme-app:
+    build: .
+    container_name: github-readme-app
+    ports:
+      - "5001:5001"
+    environment:
+      - FLASK_ENV=production
+      - FLASK_DEBUG=0
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5001/get_readme?url=https://github.com/octocat/Hello-World"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
