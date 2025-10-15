@@ -20,12 +20,12 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY readme.py .
 
 # 暴露端口
-EXPOSE 5001
+EXPOSE 5003
 
 # 设置环境变量
 ENV FLASK_APP=readme.py
 ENV FLASK_RUN_HOST=0.0.0.0
-ENV FLASK_RUN_PORT=5001
+ENV FLASK_RUN_PORT=5003
 
 # 运行应用
 CMD ["python", "readme.py"]
